@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share">Share</string>
+    <string name="test_image">Test image</string>
+    <string name="test_icon">Test icon</string>
+    <string name="included">Included</string>
+</resources>

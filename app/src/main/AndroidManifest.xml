@@ -44,7 +44,11 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.activity_search_tests"
+            android:name=".activity.SearchTestsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activity.TestDetailsActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
