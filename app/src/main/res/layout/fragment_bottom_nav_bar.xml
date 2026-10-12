@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomNavCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center_horizontal"
+    android:layout_marginStart="36dp"
+    android:layout_marginEnd="36dp"
+    android:layout_marginBottom="20dp"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="14dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:strokeColor="#E5E7EB"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp">
+
+        <!-- 1. Home (active = green) -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/iconHome"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_home"
+                app:tint="#0F8A5F"
+                android:contentDescription="Home" />
+
+            <TextView
+                android:id="@+id/labelHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Home"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#0F8A5F" />
+        </LinearLayout>
+
+        <!-- 2. Bookings -->
+        <LinearLayout
+            android:id="@+id/navBookings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/iconBookings"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_bookings"
+                app:tint="#1F2937"
+                android:contentDescription="Bookings" />
+
+            <TextView
+                android:id="@+id/labelBookings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Bookings"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#1F2937" />
+        </LinearLayout>
+
+        <!-- 3. Reports -->
+        <LinearLayout
+            android:id="@+id/navReports"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/iconReports"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_reports"
+                app:tint="#1F2937"
+                android:contentDescription="Reports" />
+
+            <TextView
+                android:id="@+id/labelReports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Reports"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#1F2937" />
+        </LinearLayout>
+
+        <!-- 4. Profile -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/iconProfile"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_profile"
+                app:tint="#1F2937"
+                android:contentDescription="Profile" />
+
+            <TextView
+                android:id="@+id/labelProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Profile"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#1F2937" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

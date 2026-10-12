@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+
+    android:paddingBottom="24dp">
+
+        <!-- Green banner card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_banner_gradient"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvBannerTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Good Health\nStarts with\nRegular Tests"
+                    android:textColor="@color/dark_green"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="2dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ivBanner" />
+
+                <TextView
+                    android:id="@+id/tvBannerDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Book lab tests from nearby registered clinics and hospitals."
+                    android:textColor="@color/primary_green"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvBannerTitle"
+                    app:layout_constraintEnd_toStartOf="@id/ivBanner" />
+
+                <ImageView
+                    android:id="@+id/ivBanner"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:contentDescription="Health banner"
+                    android:src="@drawable/ic_banner_illustration"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>

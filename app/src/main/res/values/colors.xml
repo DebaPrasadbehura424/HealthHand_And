@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_green">#0B8043</color>
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="notification_red">#E53935</color>
+    <color name="mint_light">#E8F5EE</color>
+    <color name="dark_green">#065F2C</color>
+    <color name="banner_start">#E3F4EA</color>
+    <color name="banner_end">#BFE5CF</color>
+
+    <color name="tint_red">#FFEBEE</color>
+    <color name="tint_yellow">#FFF8E1</color>
+    <color name="tint_brown">#EFEBE9</color>
+    <color name="tint_purple">#F3E5F5</color>
+
+    <color name="search_stroke">#E0E0E0</color>
+
+
+    <color name="card_stroke">#E6ECE8</color>
+</resources>

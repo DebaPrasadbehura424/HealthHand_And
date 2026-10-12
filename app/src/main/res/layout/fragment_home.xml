@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7FAF8">
+
+    <!-- Toolbar -->
+    <include
+        android:id="@+id/homeToolbar"
+        layout="@layout/fragment_layout_home_toolbar" />
+
+    <!-- Scrollable content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="110dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/cardBanner"
+                layout="@layout/fragment_banner" />
+
+
+            <include
+                android:id="@+id/test"
+                layout="@layout/fragment_test" />
+
+            <include
+                android:id="@+id/nearBy"
+                layout="@layout/fragment_nearby_clinics" />
+
+
+            <include
+                android:id="@+id/action"
+                layout="@layout/fragment_quick_action" />
+
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
