@@ -7,9 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7FAF8"
-    tools:context=".activity.Profile">
+    tools:context=".activity.ProfileActivity">
 
-    <!-- Top bar -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
@@ -42,7 +41,6 @@
 
     </LinearLayout>
 
-    <!-- Scrollable content -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -62,7 +60,6 @@
             android:paddingEnd="16dp"
             android:paddingTop="16dp">
 
-            <!-- Avatar -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="96dp"
                 android:layout_height="96dp"
@@ -79,6 +76,7 @@
                     android:src="@drawable/ic_person"
                     app:tint="#0F8A5F"
                     android:contentDescription="Profile photo" />
+
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
@@ -100,7 +98,6 @@
                 android:textSize="13sp"
                 android:textColor="#6B7280" />
 
-            <!-- Options card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,7 +113,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Personal Information -->
                     <LinearLayout
                         android:id="@+id/rowPersonalInfo"
                         android:layout_width="match_parent"
@@ -151,6 +147,7 @@
                             android:src="@drawable/ic_chevron_right"
                             app:tint="#6B7280"
                             android:contentDescription="Open" />
+
                     </LinearLayout>
 
                     <View
@@ -159,7 +156,6 @@
                         android:layout_marginStart="52dp"
                         android:background="#EEF2F0" />
 
-                    <!-- Change Password -->
                     <LinearLayout
                         android:id="@+id/rowChangePassword"
                         android:layout_width="match_parent"
@@ -194,6 +190,7 @@
                             android:src="@drawable/ic_chevron_right"
                             app:tint="#6B7280"
                             android:contentDescription="Open" />
+
                     </LinearLayout>
 
                     <View
@@ -202,7 +199,6 @@
                         android:layout_marginStart="52dp"
                         android:background="#EEF2F0" />
 
-                    <!-- Help & Support -->
                     <LinearLayout
                         android:id="@+id/rowHelp"
                         android:layout_width="match_parent"
@@ -237,6 +233,7 @@
                             android:src="@drawable/ic_chevron_right"
                             app:tint="#6B7280"
                             android:contentDescription="Open" />
+
                     </LinearLayout>
 
                     <View
@@ -245,7 +242,6 @@
                         android:layout_marginStart="52dp"
                         android:background="#EEF2F0" />
 
-                    <!-- About HealthHand -->
                     <LinearLayout
                         android:id="@+id/rowAbout"
                         android:layout_width="match_parent"
@@ -280,6 +276,7 @@
                             android:src="@drawable/ic_chevron_right"
                             app:tint="#6B7280"
                             android:contentDescription="Open" />
+
                     </LinearLayout>
 
                     <View
@@ -288,7 +285,6 @@
                         android:layout_marginStart="52dp"
                         android:background="#EEF2F0" />
 
-                    <!-- Logout -->
                     <LinearLayout
                         android:id="@+id/rowLogout"
                         android:layout_width="match_parent"
@@ -317,15 +313,17 @@
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:textColor="#E53935" />
+
                     </LinearLayout>
 
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Floating bottom bar -->
     <include
         android:id="@+id/bottomBar"
         layout="@layout/fragment_bottom_nav_bar"
