@@ -9,7 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.healthhand.R
 
-class DashBoardActivity : AppCompatActivity() {
+class DashBoardActivity : BaseActivity() {
 
     private var userId: Long = -1L
     private var userName: String = ""
@@ -22,6 +22,8 @@ class DashBoardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_dash_board)
+
+        setupBottomNav(NavTab.HOME);
 
         userId = intent.getLongExtra("USER_ID", -1L)
         userName = intent.getStringExtra("USER_NAME") ?: ""

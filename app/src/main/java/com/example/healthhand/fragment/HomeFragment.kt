@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import com.example.healthhand.R
 import com.example.healthhand.activity.ClinicDetailsActivity
 import com.example.healthhand.activity.MyBookingsActivity
-import com.example.healthhand.activity.Profile
 import com.example.healthhand.activity.ReportsActivity
 import com.example.healthhand.activity.SearchTestsActivity
 
