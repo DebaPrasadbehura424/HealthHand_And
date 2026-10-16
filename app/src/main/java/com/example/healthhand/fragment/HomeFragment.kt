@@ -28,7 +28,6 @@ class HomeFragment : Fragment() {
             }
         }
 
-        go(R.id.ivProfile, Profile::class.java)
         go(R.id.cardSearch, SearchTestsActivity::class.java)
         go(R.id.tvSeeAllTests, SearchTestsActivity::class.java)
         go(R.id.testBlood, SearchTestsActivity::class.java)

@@ -9,51 +9,6 @@
     android:paddingEnd="16dp"
     >
 
-    <!-- 1. Top row: greeting + profile photo -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvGreeting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hello, there 👋"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#1F2937" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Find the right test, at the right place."
-                android:textSize="12sp"
-                android:textColor="#6B7280" />
-        </LinearLayout>
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivProfile"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:padding="2dp"
-            android:scaleType="centerCrop"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/ic_profile_placeholder"
-            android:contentDescription="Profile"
-            app:shapeAppearanceOverlay="@style/CircleImageView"
-            app:strokeColor="@color/mint_light"
-            app:strokeWidth="2dp" />
-    </LinearLayout>
 
     <Space
         android:layout_width="match_parent"

@@ -8,6 +8,7 @@
     android:background="#F7FAF8"
     tools:context=".activity.DashBoardActivity">
 
+
     <include
         android:id="@+id/homePage"
         layout="@layout/fragment_home"

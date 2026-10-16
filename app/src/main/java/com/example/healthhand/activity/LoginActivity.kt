@@ -13,12 +13,14 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.healthhand.R
 import com.example.healthhand.database.SupabaseClient
+import com.example.healthhand.model.Profile
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.providers.builtin.Email
 import io.github.jan.supabase.exceptions.RestException
+import io.github.jan.supabase.postgrest.from
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -99,17 +101,28 @@ class LoginActivity : AppCompatActivity() {
 
             try {
                 // Move network work off the main thread
-                withContext(Dispatchers.IO) {
+               val profile= withContext(Dispatchers.IO) {
                     SupabaseClient.client.auth.signInWith(Email) {
                         this.email = email
                         this.password = password
                     }
+//                   val userId = SupabaseClient.client.auth.currentUserOrNull()?.id  ?:throw IllegalStateException("User Not Found")
+
+                   SupabaseClient.client.from("profiles")
+                       .select { filter { eq("email", email) } }
+                       .decodeSingleOrNull<Profile>()
+                       ?: throw IllegalStateException("Profile not found")
+                }
+
+                val intent = Intent(this@LoginActivity, DashBoardActivity::class.java).apply {
+                    putExtra("USER_ID", profile.id)
+                    putExtra("USER_NAME", profile.name)
+                    putExtra("USER_EMAIL", profile.email)
                 }
 
                 Toast.makeText(this@LoginActivity, "Login successful!", Toast.LENGTH_SHORT).show()
 
-                // IMPORTANT: go to next screen and finish this activity
-                startActivity(Intent(this@LoginActivity, DashBoardActivity::class.java)) // ← change to your home activity
+                startActivity(Intent(intent))
                 finish()
 
             } catch (e: RestException) {
