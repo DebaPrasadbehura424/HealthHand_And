@@ -152,7 +152,7 @@ class ProfileActivity : BaseActivity() {
             } catch (e: CancellationException) {
                 throw e
             } catch (e: RestException) {
-                val msg = if (e.statusCode.value == 400) "Old password is incorrect"
+                val msg = if (e.statusCode == 400) "Old password is incorrect"
                 else e.description ?: e.error
                 showMsg(msg, false)
             } catch (e: HttpRequestException) {
