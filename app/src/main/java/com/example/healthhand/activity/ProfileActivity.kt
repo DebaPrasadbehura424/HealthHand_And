@@ -40,12 +40,8 @@ class ProfileActivity : BaseActivity() {
 
         tvName.text= intent.getStringExtra("USER_NAME");
         tvEmail.text = ""
-
         findViewById<ImageView>(R.id.ivBack).setOnClickListener { finish() }
         findViewById<View>(R.id.rowLogout).setOnClickListener { logout() };
-
-
-
         loadProfile()
     }
 
@@ -56,9 +52,6 @@ class ProfileActivity : BaseActivity() {
             val userId = intent.getStringExtra("USER_ID")?.takeIf { it.isNotEmpty() }
                 ?: SupabaseClient.client.auth.currentUserOrNull()?.id
                 ?: run { goToLogin(); return@launch }
-
-
-
 
             val profile =SupabaseClient.client.from("profiles")
                 .select { filter { eq("id",userId) } }
