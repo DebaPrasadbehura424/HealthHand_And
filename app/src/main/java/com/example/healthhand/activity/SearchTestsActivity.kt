@@ -1,5 +1,6 @@
 package com.example.healthhand.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -17,13 +18,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthhand.R
 import com.example.healthhand.database.SupabaseClient
+import com.example.healthhand.model.Booking
 import com.example.healthhand.model.Clinic
 import com.example.healthhand.model.Test
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.postgrest.from
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.Json
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class SearchTestsActivity : AppCompatActivity() {
 
@@ -67,7 +74,15 @@ class SearchTestsActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.ivBack).setOnClickListener { finish() }
 
         adapter = TestAdapter(emptyList()) { item ->
-            Toast.makeText(this, "${item.test.name} @ ${item.clinicName}", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, TestDetailsActivity::class.java).apply {
+                putExtra("TEST_ITEM", Json.encodeToString(item))
+                putExtra("USER_ID", this@SearchTestsActivity.intent.getStringExtra("USER_ID"))
+                putExtra("USER_NAME", this@SearchTestsActivity.intent.getStringExtra("USER_NAME"))
+            };
+
+            startActivity(intent)
+            finish()
         }
         rvTests.layoutManager = LinearLayoutManager(this)
         rvTests.adapter = adapter
@@ -90,22 +105,39 @@ class SearchTestsActivity : AppCompatActivity() {
     private fun loadData() {
         lifecycleScope.launch {
             try {
+                val uid = SupabaseClient.client.auth.currentUserOrNull()?.id
+
                 val clinicsDef = async { SupabaseClient.client.from("clinics").select().decodeList<Clinic>() }
                 val testsDef = async { SupabaseClient.client.from("tests").select().decodeList<Test>() }
+                val bookedDef = async {
+                    if (uid == null) emptyList<Booking>()
+                    else SupabaseClient.client.from("bookings")
+                        .select { filter { eq("user_id", uid) } }
+                        .decodeList<Booking>()
+                }
 
                 val clinics = clinicsDef.await()
                 val tests = testsDef.await()
+                val booked = bookedDef.await()
+
+                val today = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
+                val bookedIds = booked
+                    .filter { it.status != "Cancelled" && it.status != "Completed" && it.date >= today }
+                    .map { it.testId }
+                    .toSet()
 
                 val clinicById = clinics.associateBy { it.id }
-                allItems = tests.map { t ->
-                    val c = clinicById[t.clinicId]
-                    TestItem(
-                        test = t,
-                        clinicName = c?.name ?: "",
-                        clinicRating = c?.rating ?: 0.0,
-                        clinicReviews = c?.reviewsCount ?: 0
-                    )
-                }
+                allItems = tests
+                    .filter { it.id !in bookedIds }
+                    .map { t ->
+                        val c = clinicById[t.clinicId]
+                        TestItem(
+                            test = t,
+                            clinicName = c?.name ?: "",
+                            clinicRating = c?.rating ?: 0.0,
+                            clinicReviews = c?.reviewsCount ?: 0
+                        )
+                    }
 
                 buildPopularChips()
                 applyFilter()

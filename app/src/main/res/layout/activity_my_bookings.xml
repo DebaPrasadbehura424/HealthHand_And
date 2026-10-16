@@ -78,37 +78,36 @@
         </LinearLayout>
 
         <!-- List -->
-        <androidx.core.widget.NestedScrollView
+        <!-- List -->
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:paddingBottom="110dp">
+            android:layout_weight="1">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bookingsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="110dp" />
+
+            <TextView
+                android:id="@+id/tvEmpty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="No bookings here"
+                android:textSize="14sp"
+                android:textColor="#6B7280"
+                android:visibility="gone" />
+        </FrameLayout>
 
-                <LinearLayout
-                    android:id="@+id/bookingsList"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
 
-                <TextView
-                    android:id="@+id/tvEmpty"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:gravity="center"
-                    android:text="No bookings here"
-                    android:textSize="14sp"
-                    android:textColor="#6B7280"
-                    android:visibility="gone" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+
     </LinearLayout>
 
     <!-- Floating bottom bar -->

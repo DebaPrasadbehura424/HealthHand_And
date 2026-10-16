@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.healthhand.R
 import com.example.healthhand.model.Test
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class TestItem(
     val test: Test,
     val clinicName: String,
